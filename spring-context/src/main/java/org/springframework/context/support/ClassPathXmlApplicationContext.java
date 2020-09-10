@@ -138,7 +138,17 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 			String[] configLocations, boolean refresh, @Nullable ApplicationContext parent)
 			throws BeansException {
 
+	    //为容器设置好bean的资源加载器
 		super(parent);
+
+		//皮一下很开心
+        Student student = new Student();
+        student.setName("imp");
+        student.setAge(18);
+        logger.info("皮一下很开心");
+
+		//调用父类AbstractRefreshableConfigApplicationContext的
+        //setConfigLocations（ configLocations）方法设置Bean配置信息的定位路径
 		setConfigLocations(configLocations);
 		if (refresh) {
 			refresh();
